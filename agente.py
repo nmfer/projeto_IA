@@ -35,6 +35,7 @@ Divisoes_Encontradas = []
 
 a = time.time()
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def work(posicao, bateria, objetos):
     # esta função é invocada em cada ciclo de clock
     # e pode servir para armazenar informação recolhida pelo agente
@@ -102,12 +103,16 @@ def work(posicao, bateria, objetos):
 		if ((sala_atual not in Divisoes_Encontradas) and sala_atual != '') :
 				Divisoes_Encontradas.append(sala_atual)
 				
+		
+		
 		#Só adiciona quando vê que todos os objetos ainda não foram registados
 		if (bool(set(objetos).intersection(Objetos_Vistos)) == False) :
 			#Objetos encontrados nas salas são adicionados a lista Objetos_Vistos tal como as mesmas
 			for i in range (len(objetos)):
 				Objetos_Vistos.append(objetos[i])
 				Objetos_Vistos.append(sala_atual)
+		
+		
 		
 		#Só adciona a lista de médicos quando o mesmo ainda não foi registado
 		if (bool(set(objetos).intersection(Medicos_Vistos)) == False) :
@@ -117,8 +122,17 @@ def work(posicao, bateria, objetos):
 					Medicos_Vistos.append(objetos[i])
 					Medicos_Vistos.append(X)
 					Medicos_Vistos.append(Y)
-				
-	
+
+#--------------------------------------------------------------------------------------------------------------------		
+		#só adiciona à lista de pessoas encontradas quando o mesmo ainda não foi registado
+		if (bool(set(objetos).intersection(Pessoas_Encontradas)) == False):
+			for i in range(len(objetos)):
+				#Objetos encontrados nas salas são adicionados a lista Objetos_Vistos tal como as mesmas
+				if(('medico' in objetos[i]) or ('doente' in objetos[i]) or ('enfermeiro' in objetos[i])):		
+					Pessoas_Encontradas.append(Objetos_Vistos[i])
+
+#--------------------------------------------------------------------------------------------------------------------	
+
 	Tipos_de_Sala(sala_atual)
 	
 	Y_ant = Y
@@ -131,6 +145,8 @@ def work(posicao, bateria, objetos):
 		a = time.time()
 
 	pass
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 #Ver qual é o tipo da sala atual 	
 def Tipos_de_Sala(sala):
@@ -228,9 +244,22 @@ def Probabiliade_Condicionada ():
 	
 	pass
 
+#-------------------------------------------------------------------------------------------------------
+#ver o tipo de pessoa -> médico/doente/enfermeiro
+
+
+
+
+#-------------------------------------------------------------------------------------------------------
+
 #Qual foi a penúltima pessoa que viste?
 def resp1():
-	
+	if Pessoas_Encontradas is None:
+		print("O Robô ainda não entrou em contacto com nenhuma pessoa")
+	elif Pessoas_Encontradas == 1:
+		print("O Robô apenas encontrou uma pessoa")
+	else:
+		print("maior que  2", Pessoas_Encontradas[len(Pessoas_Encontradas) - 1])		
 	
 	pass
 
