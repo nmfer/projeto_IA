@@ -248,7 +248,7 @@ def Probabiliade_Condicionada ():
 	pass
 
 #-------------------------------------------------------------------------------------------------------
-#ver o tipo de pessoa -> médico/doente/enfermeiro
+
 
 
 
