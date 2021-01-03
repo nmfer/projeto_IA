@@ -11,7 +11,6 @@ import time
 # Import necessário para calcular a distancia vectorial;
 import math
 
-from classes import *
 
 
 
