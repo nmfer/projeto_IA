@@ -126,10 +126,11 @@ def work(posicao, bateria, objetos):
 #--------------------------------------------------------------------------------------------------------------------		
 		#só adiciona à lista de pessoas encontradas quando o mesmo ainda não foi registado
 		if (bool(set(objetos).intersection(Pessoas_Encontradas)) == False):
-			for i in range(len(objetos)):
+			for i in range(0, len(objetos)):
 				#Objetos encontrados nas salas são adicionados a lista Objetos_Vistos tal como as mesmas
 				if(('medico' in objetos[i]) or ('doente' in objetos[i]) or ('enfermeiro' in objetos[i])):		
-					Pessoas_Encontradas.append(Objetos_Vistos[i])
+					Pessoas_Encontradas.append(objetos[i])
+					
 
 #--------------------------------------------------------------------------------------------------------------------	
 
@@ -143,6 +144,8 @@ def work(posicao, bateria, objetos):
 	#caso o agente tenha sido carregado o tempo tem que começar de novo
 	if bat == 100 :
 		a = time.time()
+
+	resp1()
 
 	pass
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -240,7 +243,7 @@ def Probabiliade_Condicionada ():
 		
 	#resultado = (cont_reuniao / len(Divisoes_Encontradas)) / (cont_obj1/ len(Divisoes_Encontradas))
 	
-	print(cont_obj1, cont_reuniao, len(Divisoes_Encontradas))
+	#print(cont_obj1, cont_reuniao, len(Divisoes_Encontradas))
 	
 	pass
 
@@ -254,12 +257,13 @@ def Probabiliade_Condicionada ():
 
 #Qual foi a penúltima pessoa que viste?
 def resp1():
-	if Pessoas_Encontradas is None:
-		print("O Robô ainda não entrou em contacto com nenhuma pessoa")
-	elif Pessoas_Encontradas == 1:
+	
+	if len(Pessoas_Encontradas) == 1:
 		print("O Robô apenas encontrou uma pessoa")
+	elif len(Pessoas_Encontradas) > 1:
+		print("A Penultima pessoa pessoa -> ", Pessoas_Encontradas[len(Pessoas_Encontradas) - 2])		
 	else:
-		print("maior que  2", Pessoas_Encontradas[len(Pessoas_Encontradas) - 1])		
+		print("O Robô ainda não encontrou nenhuma pessoa")	
 	
 	pass
 
