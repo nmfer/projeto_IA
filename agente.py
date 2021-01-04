@@ -12,6 +12,14 @@ colocar aqui os nomes e número de aluno:
 import time
 import math
 
+#---------------------------------------------------------------------------
+#posicao inicial/em que o robô começa + tempo inicial INICIAL
+X_init = 100
+Y_init = 100
+
+inicial_time = time.time()
+#---------------------------------------------------------------------------
+
 sala_atual = ''
 
 X_ant = 0
@@ -33,6 +41,7 @@ Pessoas_Encontradas = []
 #Lista com todas as divisões encontradas
 Divisoes_Encontradas = []
 
+#time.time() dá nos os segundos desde que o tempo começo, para UNIX Janeiro 1, 1970, 00:00:00 
 a = time.time()
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -48,7 +57,7 @@ def work(posicao, bateria, objetos):
     # time.time()
     
 	global X, Y, X_ant, Y_ant, objeto, objetos_sala, sala_atual, lista_objetos, bat, b
-	
+
 	#X e Y atuais :
 	X = posicao[0]
 	Y = posicao[1]
@@ -70,6 +79,10 @@ def work(posicao, bateria, objetos):
 		#Cada Sala/Corredor é atribuida pelas cordenadas
 		if (85 <= X and X <= 565) and (30 <= Y and Y <= 135):
 			sala_atual = 'Corredor 1'
+			#----------------------------------------------------------
+			#if (X == 180) and (30 <= Y and Y <= 45):
+			#sala_atual = 'Escadas'
+			#----------------------------------------------------------
 		elif (30 <= X and X <= 85) and (90 <= Y and Y <= 330):
 			sala_atual = 'Corredor 2'
 		elif (565 <= X and X <= 635) and (30 <= Y and Y <= 330):
@@ -126,8 +139,9 @@ def work(posicao, bateria, objetos):
 #--------------------------------------------------------------------------------------------------------------------		
 		#só adiciona à lista de pessoas encontradas quando o mesmo ainda não foi registado
 		if (bool(set(objetos).intersection(Pessoas_Encontradas)) == False):
+			#objetos encontrados são adicionados à lista_de_pessoa encontradas 
 			for i in range(0, len(objetos)):
-				#Objetos encontrados nas salas são adicionados a lista Objetos_Vistos tal como as mesmas
+				#se for médico, doente ou enfermeiro
 				if(('medico' in objetos[i]) or ('doente' in objetos[i]) or ('enfermeiro' in objetos[i])):		
 					Pessoas_Encontradas.append(objetos[i])
 					
@@ -140,12 +154,12 @@ def work(posicao, bateria, objetos):
 	
 	X_ant = X
 	
-	Probabiliade_Condicionada ()
+	#Probabiliade_Condicionada ()
 	#caso o agente tenha sido carregado o tempo tem que começar de novo
 	if bat == 100 :
 		a = time.time()
 
-	resp1()
+	#resp1()
 
 	pass
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -180,12 +194,24 @@ def Tipos_de_Sala(sala):
 			if (cama > 0 ):
 				Tipos_Sala.append(sala)
 				Tipos_Sala.append('Quarto')
+				#--------------
+				Tipos_de_Sala.append(X)
+				Tipos_de_Sala.append(Y)
+				#--------------
 			elif (cama == 0 and cadeira > 0 and mesa > 0):
 				Tipos_Sala.append(sala)
 				Tipos_Sala.append('Sala de Enfermeiros')
+				#--------------
+				Tipos_de_Sala.append(X)
+				Tipos_de_Sala.append(Y)
+				#--------------
 			elif (cadeira > 2 and cama == 0 and mesa == 0):
 				Tipos_Sala.append(sala)
 				Tipos_Sala.append('Sala de Espera')
+				#--------------
+				Tipos_de_Sala.append(X)
+				Tipos_de_Sala.append(Y)
+				#--------------
 	
 	#Se numa sala de espera uma mesa for encontrada (ou seja passar a ser uma sala de Enfermeiros)
 	for i in range (0, len(Tipos_Sala)):
@@ -243,19 +269,103 @@ def Probabiliade_Condicionada ():
 		
 	#resultado = (cont_reuniao / len(Divisoes_Encontradas)) / (cont_obj1/ len(Divisoes_Encontradas))
 	
-	#print(cont_obj1, cont_reuniao, len(Divisoes_Encontradas))
+	print(cont_obj1, cont_reuniao, len(Divisoes_Encontradas))
 	
 	pass
 
 #-------------------------------------------------------------------------------------------------------
+def Caminho_sala_Enfermeiro():
+	
+	#variaveis auxiliares
+	count = 0
+	distancia = 0
+
+	#lista auxiliar
+	distancias_varias = []
+
+	#cria uma lista auxiliar para guardar as salas de enfermeiros que vão existindo
+	sala_aux = []
+
+	#percorre a lista dos Tipos de Sala que existem
+	for i in range(0, len(Tipos_Sala), 4):
+		#se Sala Enfermeiros estiver na lista dos tipos de Sala, algo que  tem que acontecer, pois caso não estivesse o mesmo não "acionava" a função
+		if 'Sala de Enfermeiros' in Tipos_Sala[i+1]: 
+			count = count + 1
+			sala_aux.append(Tipos_Sala[i])
+			sala_aux.append(Tipos_Sala[i+2]) #X
+			sala_aux.append(Tipos_Sala[i+3]) #Y
+
+	#se só existe 1 sala de enfermeiros
+	if count == 1:
+		X_sala = sala_aux[1]
+		Y_sala = sala_aux[2]
+		#calcula a distância da posição em que o dito se encontra até à única sala existente
+		distancia = math.sqrt((X_sala - X_ant)**2 + (Y_sala - Y_ant)**2)
+
+		print("tamanho = 1")
+	#se existir mais que 1 sala de enfermeiros	
+	else:
+
+		for i in range(0, len(sala_aux),3):
+			#guardar o X e Y da sala
+			X_sala = sala_aux[i+1]
+			Y_sala = sala_aux[i+2]
+			#calcula a distância da posição em que o dito se encontra até à única sala existente, através do X e Y da posição atual e da sala
+			distancia = math.sqrt((X_sala - X_ant)**2 + (Y_sala - Y_ant)**2)
+			
+			distancias_varias.append(sala_aux[i])
+			distancias_varias.append(distancia)
+		
+		#sala em concreto
+		aux_distancias = distancias_varias[0]
+		#distancia da posição atual até dita sala
+		distancia_aux = distancias_varias[1]
+		
+		for i in range(3, len(distancias_varias),2):
+			if(distancia_aux > distancias_varias[i]):
+				aux_distancias = distancias_varias[i-1]
+			else:
+				aux_distancias = aux_distancias	
+
+	#traçar o caminho, agora que já se sabe a sala de enfermeiros mais próxima 
+		#corredr1 -> Corredor ->... Sala...
 
 
 
 
+
+def Calcula_tempo_Distancia(tempo_inicial):
+	media = 0
+	distancia = 0
+
+	if(X_init != X_ant) and (Y_init != Y_ant):
+		distancia = math.sqrt((X_ant - X_init)**2 + (Y_ant - Y_init)**2)
+		d = time.time()
+		
+	tempo = tempo_inicial - d	
+	 
+
+
+def Tempo_Caminho_Escadas():
+	distancia = 0
+	posicao_escadas = ''
+	#posição das escadas
+	#if (X == 180) and (30 <= Y and Y <= 45):
+	#	posicao_escadas = 'Escadas'
+	
+	tempo_inicial = time.time()
+
+	#Calcula_tempo_Distancia(tempo_inicial)
+
+	distancia = math.sqrt((180 - X_ant)**2 + (40 - Y_ant)**2)
+
+
+		
 
 #-------------------------------------------------------------------------------------------------------
 
 #Qual foi a penúltima pessoa que viste?
+#Feito
 def resp1():
 	
 	if len(Pessoas_Encontradas) == 1:
@@ -274,16 +384,28 @@ def resp2():
 	if sala_atual == '':
 		print ("O agente de momento não se encontra em nenhuma sala.")
 	else :
-		for i in range (0, len(Tipos_Sala)):
-			if (Tipos_Sala[i] == sala_atual):
-				print ('A sala onde o agente se encontra de momento é ', Tipos_Sala[i+1], ".")
+		#Joana
+		#for i in range (0, len(Tipos_Sala)):
+		#	if (Tipos_Sala[i] == sala_atual):
+		#		print ('A sala onde o agente se encontra de momento é ', Tipos_Sala[i+1], ".")
+		
+		#Nuno -> adicionei coisas anteriormente, se achares bem retirar porque não está correto
+		for i in range (1, len(Tipos_Sala),4): #começa em 1, e faz 4 a 4
+			if (Tipos_Sala[i-1] == sala_atual):
+				print ('A sala onde o agente se encontra de momento é ', Tipos_Sala[i], ".")
 		
 	pass
 
 #Qual o caminho para a sala de enfermeiros mais próxima?
+#Pesquisar mais acerca disto
 def resp3():
-	
-	
+	if Tipos_Sala is None:
+		print("Ainda não existem salas registadas")
+	elif 'Enfermeiros' not in Tipos_Sala:
+		print("Ainda não foi registada uma sala de enfermeiros")
+	else:		
+		Caminho_sala_Enfermeiro()
+
 	pass
 
 #Qual a distância até ao médico mais próximo?
