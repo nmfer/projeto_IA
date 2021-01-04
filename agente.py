@@ -330,6 +330,7 @@ def Caminho_sala_Enfermeiro():
 	#traçar o caminho, agora que já se sabe a sala de enfermeiros mais próxima 
 		#corredr1 -> Corredor ->... Sala...
 
+	#fazer uma função para locate porta...
 
 
 
