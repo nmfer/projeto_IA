@@ -302,7 +302,7 @@ def Caminho_sala_Enfermeiro():
 		#calcula a distância da posição em que o dito se encontra até à única sala existente
 		distancia = math.sqrt((X_sala - X_ant)**2 + (Y_sala - Y_ant)**2)
 
-		print("tamanho = 1")
+		print(distancia)
 	#se existir mais que 1 sala de enfermeiros	
 	else:
 
@@ -331,7 +331,7 @@ def Caminho_sala_Enfermeiro():
 		#corredr1 -> Corredor ->... Sala...
 
 	#fazer uma função para locate porta...
-	print(aux_distancias)
+		print(aux_distancias)
 	pass
 
 
@@ -400,14 +400,15 @@ def resp2():
 #Qual o caminho para a sala de enfermeiros mais próxima?
 #Parcialmente feito
 def resp3():
-	sala_atual = ''
-	Tipos_de_Sala(sala_atual)
+	#sala_atual = ''
+	#Tipos_de_Sala(sala_atual)
 	if len(Tipos_Sala) == 0:
 		print("Ainda não existem salas registadas")
 	elif 'Sala de Enfermeiros' not in Tipos_Sala:
 		print("Ainda não foi registada uma sala de enfermeiros")
 	else:		
 		Caminho_sala_Enfermeiro()
+		#print("sala FOUND")
 
 	pass
 
