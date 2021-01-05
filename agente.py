@@ -344,6 +344,7 @@ def Calcula_tempo_Distancia():
 		d = time.time()
 		
 	tempo = tempo_inicial - d	
+	pass
 	 
 
 
@@ -359,6 +360,7 @@ def Tempo_Caminho_Escadas():
 	#Calcula_tempo_Distancia(tempo_inicial)
 
 	distancia = math.sqrt((180 - X_ant)**2 + (40 - Y_ant)**2)
+	pass
 
 
 		
