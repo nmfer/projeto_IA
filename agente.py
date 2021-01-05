@@ -400,9 +400,11 @@ def resp2():
 #Qual o caminho para a sala de enfermeiros mais próxima?
 #Parcialmente feito
 def resp3():
-	if Tipos_Sala is None:
+	sala_atual = ''
+	Tipos_de_Sala(sala_atual)
+	if len(Tipos_Sala) == 0:
 		print("Ainda não existem salas registadas")
-	elif 'Enfermeiros' not in Tipos_Sala:
+	elif 'Sala de Enfermeiros' not in Tipos_Sala:
 		print("Ainda não foi registada uma sala de enfermeiros")
 	else:		
 		Caminho_sala_Enfermeiro()
