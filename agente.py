@@ -447,7 +447,7 @@ def resp4():
 #Quanto tempo achas que demoras a ir de onde estás até as escadas?
 def resp5():
 	
-	print('teste')
+	#print('teste')
 	#print(a)
 	#print(b)
 	#print(X)
