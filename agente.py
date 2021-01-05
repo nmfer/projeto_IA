@@ -159,7 +159,7 @@ def work(posicao, bateria, objetos):
 	if bat == 100 :
 		a = time.time()
 
-	resp3()
+	resp5()
 
 	pass
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -445,6 +445,11 @@ def resp4():
 #Quanto tempo achas que demoras a ir de onde estás até as escadas?
 def resp5():
 	
+	print(a)
+	print(b)
+	print(X)
+	print(X_ant)
+	print(Y_ant)
 	
     pass
 
