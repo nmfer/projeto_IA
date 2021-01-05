@@ -195,22 +195,22 @@ def Tipos_de_Sala(sala):
 				Tipos_Sala.append(sala)
 				Tipos_Sala.append('Quarto')
 				#--------------
-				Tipos_de_Sala.append(X)
-				Tipos_de_Sala.append(Y)
+				Tipos_Sala.append(X)
+				Tipos_Sala.append(Y)
 				#--------------
 			elif (cama == 0 and cadeira > 0 and mesa > 0):
 				Tipos_Sala.append(sala)
 				Tipos_Sala.append('Sala de Enfermeiros')
 				#--------------
-				Tipos_de_Sala.append(X)
-				Tipos_de_Sala.append(Y)
+				Tipos_Sala.append(X)
+				Tipos_Sala.append(Y)
 				#--------------
 			elif (cadeira > 2 and cama == 0 and mesa == 0):
 				Tipos_Sala.append(sala)
 				Tipos_Sala.append('Sala de Espera')
 				#--------------
-				Tipos_de_Sala.append(X)
-				Tipos_de_Sala.append(Y)
+				Tipos_Sala.append(X)
+				Tipos_Sala.append(Y)
 				#--------------
 	
 	#Se numa sala de espera uma mesa for encontrada (ou seja passar a ser uma sala de Enfermeiros)
