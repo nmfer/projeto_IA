@@ -331,11 +331,11 @@ def Caminho_sala_Enfermeiro():
 		#corredr1 -> Corredor ->... Sala...
 
 	#fazer uma função para locate porta...
+	print(aux_distancias)
+	pass
 
 
-
-
-def Calcula_tempo_Distancia(tempo_inicial):
+def Calcula_tempo_Distancia():
 	media = 0
 	distancia = 0
 
@@ -398,7 +398,7 @@ def resp2():
 	pass
 
 #Qual o caminho para a sala de enfermeiros mais próxima?
-#Pesquisar mais acerca disto
+#Parcialmente feito
 def resp3():
 	if Tipos_Sala is None:
 		print("Ainda não existem salas registadas")
