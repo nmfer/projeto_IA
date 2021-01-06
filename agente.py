@@ -132,10 +132,10 @@ def work(posicao, bateria, objetos):
 			sala_atual = 'Sala 14'
 		
 		else:
-
-			#--------------------------------------------------------------------------------------------
-			#Definir portas para ajuda na deslocação do robô
-			sala_atual = ''	
+			sala_atual = ''
+	#--------------------------------------------------------------------------------------------
+	#Definir portas para ajuda na deslocação do robô
+				
 		if  (180 <= Y and Y <= 285):
 			if (85 < X and X < 130):
 				porta = 'Porta 1'
@@ -155,7 +155,7 @@ def work(posicao, bateria, objetos):
 				sala_seguinte = 'Sala 7'
 			else:
 				porta = ''
-				print ('NADA')
+				#print ('NADA')
 				
 		
 		elif (135 < Y and Y < 180):
@@ -173,7 +173,7 @@ def work(posicao, bateria, objetos):
 				sala_seguinte = 'Sala 7'
 			else:
 				porta = ''
-				print ('NADA')			
+				#print ('NADA')			
 		
 		elif (455 <= Y and Y <= 570):
 			if (235 < X and X < 280):
@@ -190,7 +190,7 @@ def work(posicao, bateria, objetos):
 				sala_seguinte = 'Sala 13'
 			else:
 				porta = ''
-				print ('NADA')
+				#print ('NADA')
 		
 		elif (285 < Y and Y < 330):
 			if (130 <= X and X <= 235):
@@ -211,7 +211,7 @@ def work(posicao, bateria, objetos):
 				sala_seguinte = 'Sala 10'	
 			else:
 				porta = ''
-				print ('NADA')
+				#print ('NADA')
 		
 		elif (635 < X and X < 650):	
 			if (30 <= Y and Y <= 55):
@@ -228,7 +228,7 @@ def work(posicao, bateria, objetos):
 				sala_seguinte = 'Sala 10'
 			else:
 				porta = ''
-				print ('NADA')		
+				#print ('NADA')		
 		
 		elif (650 <= X and X <= 770):	
 			if (55 < Y and Y < 130):
@@ -241,7 +241,7 @@ def work(posicao, bateria, objetos):
 				sala_seguinte = 'Sala 9'
 			else:
 				porta = ''
-				print ('NADA')
+				#print ('NADA')
 
 		elif (410 < Y and Y < 455):
 			if(30 <= X and X <= 235):
@@ -262,13 +262,13 @@ def work(posicao, bateria, objetos):
 				sala_seguinte = 'Sala 14'	
 			else:
 				porta = ''
-				print ('NADA')
+				#print ('NADA')
 			
 		else:
 			porta = ''
-			print('test')		
+			#print('test')		
 		
-		#--------------------------------------------------------------------------------------------
+	#--------------------------------------------------------------------------------------------
 	
 		
 		
