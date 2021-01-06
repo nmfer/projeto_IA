@@ -198,10 +198,10 @@ def work(posicao, bateria, objetos):
 	if bat == 100 :
 		a = time.time()
 
-	#resp2()
-	print(sala_atual)
-	print(X)
-	print(Y)
+	resp3()
+	#print(sala_atual)
+	#print(X)
+	#print(Y)
 
 	pass
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -334,7 +334,7 @@ def Distancia_sala_Enfermeiro():
 		if 'Sala de Enfermeiros' in Tipos_Sala[i+1]: 
 			count = count + 1
 			for j in range(0, len(Divisoes), 3):
-				if(Tipos_Sala[i] in Divisoes):
+				if(Tipos_Sala[i] in Divisoes[j]):
 					sala_aux.append(Divisoes[j])
 					sala_aux.append(Divisoes[j+1]) #X
 					sala_aux.append(Divisoes[j+2]) #Y
