@@ -256,13 +256,13 @@ def work(posicao, bateria, objetos):
 				porta = 'Porta 22 - correto'
 				sala_anterior = 'Corredor 4'
 				sala_seguinte = 'Sala 13'
-			elif(615 < X and X < 770):
+			elif (615 <= X and X <= 770):
 				porta = 'Porta 23 - correto'
 				sala_anterior = 'Corredor 4'
 				sala_seguinte = 'Sala 14'	
-			#else:
+			else:
 				#porta = ''
-				#print ('NADA')
+				print ('NADA')
 			
 		else:
 			porta = ''
