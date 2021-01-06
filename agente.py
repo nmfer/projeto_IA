@@ -22,12 +22,6 @@ inicial_time = time.time()
 coordenadas_X = 0
 coordenadas_Y = 0
 
-porta = ''
-sala_anterior = ''
-sala_seguinte = ''
-
-#Lista das Portas e sua localização (Porta, Porta_seguinte, Porta_anterior)
-Portas = []
 
 #---------------------------------------------------------------------------
 
@@ -49,7 +43,7 @@ Medicos_Vistos = []
 #Lista de Pessoas encontradas e as salas onde as mesmas foram encontradas (Pessoa, Sala)
 Pessoas_Encontradas = []
 
-#Lista com todas as divisões encontradas, + coordenadas X, Y
+#Lista com todas as divisões encontradas, #+ coordenadas X, Y
 Divisoes_Encontradas = []
 
 #time.time() dá nos os segundos desde que o tempo começo, para UNIX Janeiro 1, 1970, 00:00:00 
@@ -67,8 +61,7 @@ def work(posicao, bateria, objetos):
     # podem achar o tempo atual usando, p.ex.
     # time.time()
     
-	#retirar porta
-	global X, Y, X_ant, Y_ant, objeto, objetos_sala, sala_atual, lista_objetos, bat, b, coordenadas_X, coordenadas_Y, porta
+	global X, Y, X_ant, Y_ant, objeto, objetos_sala, sala_atual, lista_objetos, bat, b, coordenadas_X, coordenadas_Y
 
 	#X e Y atuais :
 	X = posicao[0]
@@ -91,8 +84,8 @@ def work(posicao, bateria, objetos):
 		#Cada Sala/Corredor é atribuida pelas cordenadas
 		if (85 < X and X < 565) and (30 <= Y and Y <= 135): #retirei alguns sinais iguais das funções
 			sala_atual = 'Corredor 1'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 			
 			#----------------------------------------------------------
 			#if (X == 180) and (30 <= Y and Y <= 45):
@@ -101,63 +94,63 @@ def work(posicao, bateria, objetos):
 		
 		elif (30 <= X and X <= 85) and (90 <= Y and Y < 330):
 			sala_atual = 'Corredor 2'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (565 <= X and X <= 635) and (30 <= Y and Y < 330):
 			sala_atual = 'Corredor 3'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (30 <= X and X <= 770) and (330 <= Y and Y <= 410):
 			sala_atual = 'Corredor 4'	
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (130 <= X and X <= 235) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 5'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (280 <= X and X <= 385) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 6'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (430 <= X and X <= 520) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 7'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (680 <= X and X <= 770) and (30 <= Y and Y <= 85):
 			sala_atual = 'Sala 8'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (680 <= X and X <= 770) and (130 <= Y and Y <= 185):	
 			sala_atual = 'Sala 9'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (680 <= X and X <= 770) and (230 <= Y and Y <= 285):
 			sala_atual = 'Sala 10'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (30 <= X and X <= 235) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 11'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (280 <= X and X <= 385) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 12'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (430 <= X and X <= 570) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 13'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		elif (615 <= X and X <= 770) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 14'
@@ -171,154 +164,7 @@ def work(posicao, bateria, objetos):
 	
 	
 	
-	
-	
 	#--------------------------------------------------------------------------------------------
-	#Definir portas para ajuda na deslocação do robô
-				
-		if  (180 <= Y and Y <= 285):
-			if (85 < X and X < 130):
-				porta = 'Porta 1'
-				sala_anterior = 'Corredor 2'
-				sala_seguinte = 'Sala 5'
-			elif (235 < X and X < 280):
-				porta = 'Porta 2'
-				sala_anterior = 'Sala 5'
-				sala_seguinte = 'Sala 6'
-			elif (385 < X and X < 430):
-				porta = 'Porta 3'
-				sala_anterior = 'Sala 6'
-				sala_seguinte = 'Sala 7'
-			elif (520 < X and X < 565):
-				porta = 'Porta 4 - correto'
-				sala_anterior = 'Corredor 3'
-				sala_seguinte = 'Sala 7'
-			else:
-				porta = ''
-				#print ('NADA')
-				
-		
-		elif (135 < Y and Y < 180):
-			if (130 <= X and X <= 235):
-				porta = 'Porta 5 - correto'
-				sala_anterior = 'Corredor 1'
-				sala_seguinte = 'Sala 5'
-			elif (280 <= X and X <= 385):
-				porta = 'Porta 6'
-				sala_anterior = 'Corredor 1'
-				sala_seguinte = 'Sala 6'
-			elif (430 <= X and X <= 520):
-				porta = 'Porta 7'
-				sala_anterior = 'Corredor 1'
-				sala_seguinte = 'Sala 7'
-			else:
-				porta = ''
-				#print ('NADA')			
-		
-		elif (455 <= Y and Y <= 570):
-			if (235 < X and X < 280):
-				porta = 'Porta 8'
-				sala_anterior = 'Sala 11'
-				sala_seguinte = 'Sala 12'
-			elif (385 < X and X < 430):
-				porta = 'Porta 9'
-				sala_anterior = 'Sala 12'
-				sala_seguinte = 'Sala 13'
-			elif (570 < X and X < 615):
-				porta = 'Porta 10'
-				sala_anterior = 'Sala 14'
-				sala_seguinte = 'Sala 13'
-			else:
-				porta = ''
-				#print ('NADA')
-		
-		elif (285 < Y and Y < 330):
-			if (130 < X and X < 235):
-				porta = 'Porta 11'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 5'
-			elif (280 < X and X < 385):
-				porta = 'Porta 12 - correto'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 6'
-			elif (430 < X and X < 520):
-				porta = 'Porta 13'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 7'
-			elif (680 < X and X < 770):
-				porta = 'Porta 14'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 10'	
-			#else:
-				#porta = ''
-				#print ('NADA')
-		
-		elif (635 < X and X < 680):	
-			if (30 < Y and Y < 85):
-				porta = 'Porta 15 -correto'
-				sala_anterior = 'Corredor 3'
-				sala_seguinte = 'Sala 8'
-			elif (130 < Y and Y < 185):
-				porta = 'Porta 16 - correto'
-				sala_anterior = 'Corredor 3'
-				sala_seguinte = 'Sala 9'
-			elif (230 < Y and Y < 285):
-				porta = 'Porta 17'
-				sala_anterior = 'Corredor 3'
-				sala_seguinte = 'Sala 10'
-			else:
-				porta = ''
-				#print ('NADA')		
-		
-		elif (650 <= X and X <= 770):	
-			if (85 < Y and Y < 130):
-				porta = 'Porta 18'
-				sala_anterior = 'Sala 8'
-				sala_seguinte = 'Sala 9'
-			elif (185 < Y and Y < 230):
-				porta = 'Porta 19'
-				sala_anterior = 'Sala 10'
-				sala_seguinte = 'Sala 9'
-			else:
-				porta = ''
-				#print ('NADA')
-
-		elif (410 < Y and Y < 455):
-			if (30 <= X and X <= 235):
-				porta = 'Porta 20 - correto'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 11'
-			elif (280 <= X and X <= 385):
-				porta = 'Porta 21 - correto'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 12'
-			elif (430 <= X and X <= 570):
-				porta = 'Porta 22 - correto'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 13'
-			elif (615 <= X and X <= 770):
-				porta = 'Porta 23 - correto'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 14'	
-			else:
-				#porta = ''
-				print ('NADA')
-			
-		else:
-			porta = ''
-			#print('test')		
-		
-	#--------------------------------------------------------------------------------------------
-	
-		
-		
-		#Adiciona só a porta quando esta ainda não foi adicionada
-		if ((porta not in Portas) and porta != '') :
-				Portas.append(porta)
-				Portas.append(sala_anterior)
-				Portas.append(sala_seguinte)
-
-
 		#Adiciona só a divisão quando esta ainda não foi adicionada
 		if ((sala_atual not in Divisoes_Encontradas) and sala_atual != '') :
 				Divisoes_Encontradas.append(sala_atual)
