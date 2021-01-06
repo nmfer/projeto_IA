@@ -623,8 +623,7 @@ def resp5():
 	#else:
 	Calcula_Distancia_Escadas()
 	
-
-    pass
+	pass
 
 #Quanto tempo achas que falta até ficares sem bateria?
 #Feito
