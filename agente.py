@@ -244,18 +244,18 @@ def work(posicao, bateria, objetos):
 				#print ('NADA')
 
 		elif (410 < Y and Y < 455):
-			if(30 < X and X < 235):
+			if (30 <= X and X <= 235):
 				porta = 'Porta 20 - correto'
 				sala_anterior = 'Corredor 4'
 				sala_seguinte = 'Sala 11'
-			elif (280 < X and X < 385):
+			elif (280 <= X and X <= 385):
 				porta = 'Porta 21 - correto'
 				sala_anterior = 'Corredor 4'
 				sala_seguinte = 'Sala 12'
-			elif (430 < X and X < 570):
-				porta = 'Porta 22 - correto'
-				sala_anterior = 'Corredor 4'
-				sala_seguinte = 'Sala 13'
+			#elif (430 <= X and X <= 570):
+			#	porta = 'Porta 22 - correto'
+			#	sala_anterior = 'Corredor 4'
+			#	sala_seguinte = 'Sala 13'
 			elif (615 <= X and X <= 770):
 				porta = 'Porta 23 - correto'
 				sala_anterior = 'Corredor 4'
