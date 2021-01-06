@@ -175,7 +175,7 @@ def work(posicao, bateria, objetos):
 				porta = ''
 				#print ('NADA')			
 		
-		elif (455 < Y and Y < 570):
+		elif (455 <= Y and Y <= 570):
 			if (235 < X and X < 280):
 				porta = 'Porta 8'
 				sala_anterior = 'Sala 11'
@@ -188,8 +188,8 @@ def work(posicao, bateria, objetos):
 				porta = 'Porta 10'
 				sala_anterior = 'Sala 14'
 				sala_seguinte = 'Sala 13'
-			#else:
-				#porta = ''
+			else:
+				porta = ''
 				#print ('NADA')
 		
 		elif (285 < Y and Y < 330):
