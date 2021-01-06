@@ -14,8 +14,8 @@ import math
 
 #---------------------------------------------------------------------------
 #posicao inicial/em que o robô começa + tempo inicial INICIAL
-X_init = 100
-Y_init = 100
+X_escada = 180
+Y_escada = 40
 
 inicial_time = time.time()
 
@@ -328,7 +328,7 @@ def work(posicao, bateria, objetos):
 
 	#resp5()
 	#print(sala_atual)
-	print(porta)
+	#print(porta)
 
 	pass
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -504,15 +504,14 @@ def Caminho_sala_Enfermeiro():
 	pass
 
 
-def Calcula_tempo_Distancia():
-	media = 0
+def Calcula_Distancia_Escadas():
+	#media = 0
 	distancia = 0
 
-	if(X_init != X_ant) and (Y_init != Y_ant):
-		distancia = math.sqrt((X_ant - X_init)**2 + (Y_ant - Y_init)**2)
-		d = time.time()
-		
-	tempo = tempo_inicial - d	
+	distancia = math.sqrt((X_escada - X_ant)**2 + (Y_escada - Y_ant)**2)
+	#d = time.time()
+	print(distancia)	
+	#tempo = tempo_inicial - d	
 	pass
 	 
 
@@ -571,8 +570,8 @@ def resp2():
 #Qual o caminho para a sala de enfermeiros mais próxima?
 #Parcialmente feito
 def resp3():
-	#sala_atual = ''
-	#Tipos_de_Sala(sala_atual)
+	
+	#indicar o caminho dizendo sala e assim
 	if len(Tipos_Sala) == 0:
 		print("Ainda não existem salas registadas")
 	elif 'Sala de Enfermeiros' not in Tipos_Sala:
@@ -616,12 +615,14 @@ def resp4():
 #Quanto tempo achas que demoras a ir de onde estás até as escadas?
 def resp5():
 	
-	#print('teste')
-	#print(a)
-	#print(b)
-	#print(X)
-	#print(X_ant)
-	#print(Y_ant)
+	#percentagem da bateria ou quanto tempo falta para a mesma terminar influencia o outcome
+	#se a distancia às escadas for maior que a duração da bateria, redirecionar para um posto de carregamento
+
+	#if(bat < 10):
+	#	print('Carregue na estação mais próxima')
+	#else:
+	Calcula_Distancia_Escadas()
+	
 
     pass
 
