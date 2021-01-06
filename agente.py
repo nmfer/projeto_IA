@@ -198,7 +198,7 @@ def work(posicao, bateria, objetos):
 	if bat == 100 :
 		a = time.time()
 
-	resp3()
+	#resp3()
 	#print(sala_atual)
 	#print(X)
 	#print(Y)
