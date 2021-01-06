@@ -18,6 +18,14 @@ X_init = 100
 Y_init = 100
 
 inicial_time = time.time()
+
+porta = ''
+sala_anterior = ''
+sala_seguinte = ''
+
+#Lista das Portas e sua localização (Porta, Porta_seguinte, Porta_anterior)
+Portas = []
+
 #---------------------------------------------------------------------------
 
 sala_atual = ''
@@ -77,41 +85,188 @@ def work(posicao, bateria, objetos):
 	if (X != X_ant) or (Y != Y_ant):
 
 		#Cada Sala/Corredor é atribuida pelas cordenadas
-		if (85 <= X and X <= 565) and (30 <= Y and Y <= 135):
+		if (85 < X and X < 565) and (30 <= Y and Y <= 135): #retirei alguns sinais iguais das funções
 			sala_atual = 'Corredor 1'
 			#----------------------------------------------------------
 			#if (X == 180) and (30 <= Y and Y <= 45):
 			#sala_atual = 'Escadas'
 			#----------------------------------------------------------
-		elif (30 <= X and X <= 85) and (90 <= Y and Y <= 330):
+		
+		elif (30 <= X and X <= 85) and (90 <= Y and Y < 330):
 			sala_atual = 'Corredor 2'
-		elif (565 <= X and X <= 635) and (30 <= Y and Y <= 330):
+		
+		elif (565 <= X and X <= 635) and (30 <= Y and Y < 330):
 			sala_atual = 'Corredor 3'
+		
 		elif (30 <= X and X <= 770) and (330 <= Y and Y <= 410):
 			sala_atual = 'Corredor 4'	
+		
 		elif (130 <= X and X <= 235) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 5'
+		
 		elif (280 <= X and X <= 385) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 6'
+		
 		elif (430 <= X and X <= 520) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 7'
+		
 		elif (680 <= X and X <= 770) and (30 <= Y and Y <= 85):
 			sala_atual = 'Sala 8'
+		
 		elif (680 <= X and X <= 770) and (130 <= Y and Y <= 185):	
 			sala_atual = 'Sala 9'
+		
 		elif (680 <= X and X <= 770) and (230 <= Y and Y <= 285):
 			sala_atual = 'Sala 10'
+		
 		elif (30 <= X and X <= 235) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 11'
+		
 		elif (280 <= X and X <= 385) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 12'
+		
 		elif (430 <= X and X <= 570) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 13'
+		
 		elif (615 <= X and X <= 770) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 14'
-		else :
-			sala_atual = ''	
 		
+		else :
+
+			#--------------------------------------------------------------------------------------------
+			#Definir portas para ajuda na deslocação do robô
+			sala_atual = ''	
+			if  (180 <= Y and Y <= 285):
+				if (85 > X and X < 130):
+					porta = 'Porta 1'
+					sala_anterior = 'Corredor 2'
+					sala_seguinte = 'Sala 5'
+				elif (235 > X and X < 280):
+					porta = 'Porta 2'
+					sala_anterior = 'Sala 5'
+					sala_seguinte = 'Sala 6'
+				elif (385 > X and X < 430):
+					porta = 'Porta 3'
+					sala_anterior = 'Sala 6'
+					sala_seguinte = 'Sala 7'
+				elif (520 > X and X < 565):
+					porta = 'Porta 4'
+					sala_anterior = 'Corredor 3'
+					sala_seguinte = 'Sala 7'
+				else:
+					print 'NADA'
+			
+			elif (135 > Y and 180 < Y):
+				if (130 <= X and X <= 235):
+					porta = 'Porta 5'
+					sala_anterior = 'Corredor 1'
+					sala_seguinte = 'Sala 5'
+				elif (280 <= X and X <= 385):
+					porta = 'Porta 6'
+					sala_anterior = 'Corredor 1'
+					sala_seguinte = 'Sala 6'
+				elif (430 <= X and X <= 520):
+					porta = 'Porta 7'
+					sala_anterior = 'Corredor 1'
+					sala_seguinte = 'Sala 7'
+				else:
+					print 'NADA'			
+			
+			elif (455 <= Y and Y <= 570):
+				if (235 > X and X < 280):
+					porta = 'Porta 8'
+					sala_anterior = 'Sala 11'
+					sala_seguinte = 'Sala 12'
+				elif (355 > X and X < 430):
+					porta = 'Porta 9'
+					sala_anterior = 'Sala 12'
+					sala_seguinte = 'Sala 13'
+				elif (570 > X and X < 615):
+					porta = 'Porta 10'
+					sala_anterior = 'Sala 14'
+					sala_seguinte = 'Sala 13'
+				else:
+					print 'NADA'
+			
+			elif (285 > Y and 330 < Y):
+				if (130 <= X and X <= 235):
+					porta = 'Porta 11'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 5'
+				elif (280 <= X and X <= 385):
+					porta = 'Porta 12'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 6'
+				elif (430 <= X and X <= 520):
+					porta = 'Porta 13'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 7'
+				elif(680 <= X and X <= 770):
+					porta = 'Porta 14'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 10'	
+				else:
+					print 'NADA'
+			
+			elif (635 > X and 650 < X):	
+				if (30 <= Y and Y <= 55):
+					porta = 'Porta 15'
+					sala_anterior = 'Corredor 3'
+					sala_seguinte = 'Sala 8'
+				elif (130 <= Y and Y <= 185):
+					porta = 'Porta 16'
+					sala_anterior = 'Corredor 3'
+					sala_seguinte = 'Sala 9'
+				elif (230 <= Y and Y <= 285):
+					porta = 'Porta 17'
+					sala_anterior = 'Corredor 3'
+					sala_seguinte = 'Sala 10'
+				else:
+					print 'NADA'		
+			
+			elif (650 <= X and 770 <= X):	
+				if (55 > Y and Y < 130):
+					porta = 'Porta 18'
+					sala_anterior = 'Sala 8'
+					sala_seguinte = 'Sala 9'
+				elif (185 > Y and Y < 230):
+					porta = 'Porta 19'
+					sala_anterior = 'Sala 10'
+					sala_seguinte = 'Sala 9'
+				else:
+					print 'NADA'
+
+			elif (410 > Y and 455 < Y):
+				if (30 <= X and X <= 235):
+					porta = 'Porta 20'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 11'
+				elif (280 <= X and X <= 385):
+					porta = 'Porta 21'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 12'
+				elif (430 <= X and X <= 570):
+					porta = 'Porta 22'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 13'
+				elif(615 <= X and X <= 770):
+					porta = 'Porta 23'
+					sala_anterior = 'Corredor 4'
+					sala_seguinte = 'Sala 14'	
+				else:
+					print 'NADA'
+
+			#--------------------------------------------------------------------------------------------
+		
+		
+		
+		#Adiciona só a porta quando esta ainda não foi adicionada
+		if ((porta not in Portas) and porta != '') :
+				Portas.append(porta)
+				Portas.append(sala_anterior)
+				Portas.append(sala_seguinte)
+
+
 		#Adiciona só a divisão quando esta ainda não foi adicionada
 		if ((sala_atual not in Divisoes_Encontradas) and sala_atual != '') :
 				Divisoes_Encontradas.append(sala_atual)
