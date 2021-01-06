@@ -180,7 +180,7 @@ def work(posicao, bateria, objetos):
 				porta = 'Porta 8'
 				sala_anterior = 'Sala 11'
 				sala_seguinte = 'Sala 12'
-			elif (355 < X and X < 430):
+			elif (385 < X and X < 430):
 				porta = 'Porta 9'
 				sala_anterior = 'Sala 12'
 				sala_seguinte = 'Sala 13'
