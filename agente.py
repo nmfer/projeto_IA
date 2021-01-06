@@ -152,7 +152,7 @@ def work(posicao, bateria, objetos):
 
 	#---------------------------------------------
 		if ((sala_atual not in Divisoes) and sala_atual != '' and 'Sala' in sala_atual) :
-				Divisoes(sala_atual)
+				Divisoes.append(sala_atual)
 				Divisoes.append(X)
 				Divisoes.append(Y)
 				#--------------------------------------------
