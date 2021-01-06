@@ -373,13 +373,14 @@ def Distancia_sala_Enfermeiro():
 				aux_distancias = distancias_varias[i-1]
 			else:
 				#sala
-				aux_distancias = aux_distancias	
+				aux_distancias = aux_distancias
 
-	#traçar o caminho, agora que já se sabe a sala de enfermeiros mais próxima 
-		#corredr1 -> Corredor ->... Sala...
-
-	#fazer uma função para locate porta...
 		print(aux_distancias)
+
+		#acabar o 3
+		#fazer a cena do deslocamento para a sala de enfermeiros
+		# corredor -> ...., tendo em conta a localização da "porta" -> entrada
+		# se o mesmo se encontrar na sala devolve -> já se encontra na sala 
 	pass
 
 def Caminho_sala_Enfermeiro():
@@ -442,18 +443,13 @@ def resp2():
 			if (Tipos_Sala[i] == sala_atual):
 				print ('A sala onde o agente se encontra de momento é ', Tipos_Sala[i+1], ".")
 		
-		#Nuno -> adicionei coisas anteriormente, se achares bem retirar porque não está correto
-		#for i in range (1, len(Tipos_Sala),4): #começa em 1, e faz 4 a 4
-		#	if (Tipos_Sala[i-1] == sala_atual):
-		#		print ('A sala onde o agente se encontra de momento é ', Tipos_Sala[i], ".")
-		
 	pass
 
 #Qual o caminho para a sala de enfermeiros mais próxima?
 #Parcialmente feito
 def resp3():
 	
-	#indicar o caminho dizendo sala e assim
+	#indicar o caminho dizendo sala e 
 	if len(Tipos_Sala) == 0:
 		print("Ainda não existem salas registadas")
 	elif 'Sala de Enfermeiros' not in Tipos_Sala:
@@ -504,6 +500,12 @@ def resp5():
 	#	print('Carregue na estação mais próxima')
 	#else:
 	Calcula_Distancia_Escadas()
+
+	#calcular o tempo de deslocação do robô
+	#(distancia / tempo_final - tempo_inicial)
+
+	#distancia para sair do quarto/sala, caso esteja na sala
+	#distancia entre os corredores -> dividir o corredor 4 em 2
 	
 	pass
 
