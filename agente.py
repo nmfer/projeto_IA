@@ -215,7 +215,7 @@ def work(posicao, bateria, objetos):
 	if bat == 100 :
 		a = time.time()
 
-	resp3()
+	resp2()
 	#print(sala_atual)
 	#print(porta)
 
