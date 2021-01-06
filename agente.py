@@ -161,8 +161,8 @@ def work(posicao, bateria, objetos):
 		
 		elif (615 <= X and X <= 770) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 14'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			coordenadas_X = X_ant
+			coordenadas_Y = Y_ant
 		
 		else:
 			sala_atual = ''
