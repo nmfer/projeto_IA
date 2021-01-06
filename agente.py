@@ -151,7 +151,7 @@ def work(posicao, bateria, objetos):
 				Divisoes_Encontradas.append(sala_atual)
 
 	#---------------------------------------------
-		if ((sala_atual not in Divisoes) and sala_atual != '' and 'Sala' in sala_atual) :
+		if ((sala_atual not in Divisoes) and 'Sala' in sala_atual) :
 				Divisoes.append(sala_atual)
 				Divisoes.append(X)
 				Divisoes.append(Y)
