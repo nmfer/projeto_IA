@@ -154,7 +154,7 @@ def work(posicao, bateria, objetos):
 					sala_anterior = 'Corredor 3'
 					sala_seguinte = 'Sala 7'
 				else:
-					print 'NADA'
+					print ('NADA')
 			
 			elif (135 > Y and 180 < Y):
 				if (130 <= X and X <= 235):
@@ -170,7 +170,7 @@ def work(posicao, bateria, objetos):
 					sala_anterior = 'Corredor 1'
 					sala_seguinte = 'Sala 7'
 				else:
-					print 'NADA'			
+					print ('NADA')			
 			
 			elif (455 <= Y and Y <= 570):
 				if (235 > X and X < 280):
@@ -186,7 +186,7 @@ def work(posicao, bateria, objetos):
 					sala_anterior = 'Sala 14'
 					sala_seguinte = 'Sala 13'
 				else:
-					print 'NADA'
+					print ('NADA')
 			
 			elif (285 > Y and 330 < Y):
 				if (130 <= X and X <= 235):
@@ -206,7 +206,7 @@ def work(posicao, bateria, objetos):
 					sala_anterior = 'Corredor 4'
 					sala_seguinte = 'Sala 10'	
 				else:
-					print 'NADA'
+					print ('NADA')
 			
 			elif (635 > X and 650 < X):	
 				if (30 <= Y and Y <= 55):
@@ -222,7 +222,7 @@ def work(posicao, bateria, objetos):
 					sala_anterior = 'Corredor 3'
 					sala_seguinte = 'Sala 10'
 				else:
-					print 'NADA'		
+					print ('NADA')		
 			
 			elif (650 <= X and 770 <= X):	
 				if (55 > Y and Y < 130):
@@ -234,7 +234,7 @@ def work(posicao, bateria, objetos):
 					sala_anterior = 'Sala 10'
 					sala_seguinte = 'Sala 9'
 				else:
-					print 'NADA'
+					print ('NADA')
 
 			elif (410 > Y and 455 < Y):
 				if (30 <= X and X <= 235):
@@ -254,7 +254,7 @@ def work(posicao, bateria, objetos):
 					sala_anterior = 'Corredor 4'
 					sala_seguinte = 'Sala 14'	
 				else:
-					print 'NADA'
+					print ('NADA')
 
 			#--------------------------------------------------------------------------------------------
 		
