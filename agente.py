@@ -503,8 +503,8 @@ def Distancia_sala_Enfermeiro():
 		#se Sala Enfermeiros estiver na lista dos tipos de Sala, algo que  tem que acontecer, pois caso não estivesse o mesmo não "acionava" a função
 		if 'Sala de Enfermeiros' in Tipos_Sala[i+1]: 
 			count = count + 1
-			for j in range(0, len(Divisoes_Encontradas), 3)
-				if(Tipos_Sala[i] in Divisoes_Encontradas)
+			for j in range(0, len(Divisoes_Encontradas), 3):
+				if(Tipos_Sala[i] in Divisoes_Encontradas):
 					sala_aux.append(Tipos_Sala[i])
 					sala_aux.append(Divisoes_Encontradas[j+1]) #X
 					sala_aux.append(Divisoes_Encontradas[j+2]) #Y
