@@ -91,8 +91,8 @@ def work(posicao, bateria, objetos):
 		#Cada Sala/Corredor é atribuida pelas cordenadas
 		if (85 < X and X < 565) and (30 <= Y and Y <= 135): #retirei alguns sinais iguais das funções
 			sala_atual = 'Corredor 1'
-			#coordenadas_X = X
-			#coordenadas_Y = Y
+			coordenadas_X = X
+			coordenadas_Y = Y
 			
 			#----------------------------------------------------------
 			#if (X == 180) and (30 <= Y and Y <= 45):
@@ -101,18 +101,18 @@ def work(posicao, bateria, objetos):
 		
 		elif (30 <= X and X <= 85) and (90 <= Y and Y < 330):
 			sala_atual = 'Corredor 2'
-			#coordenadas_X = X
-			#coordenadas_Y = Y
+			coordenadas_X = X
+			coordenadas_Y = Y
 		
 		elif (565 <= X and X <= 635) and (30 <= Y and Y < 330):
 			sala_atual = 'Corredor 3'
-			#coordenadas_X = X
-			#coordenadas_Y = Y
+			coordenadas_X = X
+			coordenadas_Y = Y
 		
 		elif (30 <= X and X <= 770) and (330 <= Y and Y <= 410):
 			sala_atual = 'Corredor 4'	
-			#coordenadas_X = X
-			#coordenadas_Y = Y
+			coordenadas_X = X
+			coordenadas_Y = Y
 		
 		elif (130 <= X and X <= 235) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 5'
@@ -505,7 +505,7 @@ def Distancia_sala_Enfermeiro():
 			count = count + 1
 			for j in range(0, len(Divisoes_Encontradas), 3):
 				if(Tipos_Sala[i] in Divisoes_Encontradas):
-					sala_aux.append(Tipos_Sala[i])
+					sala_aux.append(Divisoes_Encontradas[j])
 					sala_aux.append(Divisoes_Encontradas[j+1]) #X
 					sala_aux.append(Divisoes_Encontradas[j+2]) #Y
 
