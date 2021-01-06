@@ -153,8 +153,8 @@ def work(posicao, bateria, objetos):
 				porta = 'Porta 4 - correto'
 				sala_anterior = 'Corredor 3'
 				sala_seguinte = 'Sala 7'
-			#else:
-				#porta = ''
+			else:
+				porta = ''
 				#print ('NADA')
 				
 		
