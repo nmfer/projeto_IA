@@ -22,6 +22,7 @@ inicial_time = time.time()
 coordenadas_X = 0
 coordenadas_Y = 0
 
+Divisoes = []
 
 #---------------------------------------------------------------------------
 
@@ -82,85 +83,65 @@ def work(posicao, bateria, objetos):
 	if (X != X_ant) or (Y != Y_ant):
 
 		#Cada Sala/Corredor é atribuida pelas cordenadas
-		if (85 < X and X < 565) and (30 <= Y and Y <= 135): #retirei alguns sinais iguais das funções
+		if (85 < X and X < 565) and (30 <= Y and Y <= 135): 
 			sala_atual = 'Corredor 1'
-			coordenadas_X = X
-			coordenadas_Y = Y
 			
-			#----------------------------------------------------------
-			#if (X == 180) and (30 <= Y and Y <= 45):
-			#sala_atual = 'Escadas'
-			#----------------------------------------------------------
 		
 		elif (30 <= X and X <= 85) and (90 <= Y and Y < 330):
 			sala_atual = 'Corredor 2'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (565 <= X and X <= 635) and (30 <= Y and Y < 330):
 			sala_atual = 'Corredor 3'
-			coordenadas_X = X
-			coordenadas_Y = Y
+
 		
 		elif (30 <= X and X <= 770) and (330 <= Y and Y <= 410):
 			sala_atual = 'Corredor 4'	
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (130 <= X and X <= 235) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 5'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (280 <= X and X <= 385) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 6'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (430 <= X and X <= 520) and (180 <= Y and Y <= 285):
 			sala_atual = 'Sala 7'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 
 		elif (680 <= X and X <= 770) and (30 <= Y and Y <= 85):
 			sala_atual = 'Sala 8'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (680 <= X and X <= 770) and (130 <= Y and Y <= 185):	
 			sala_atual = 'Sala 9'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (680 <= X and X <= 770) and (230 <= Y and Y <= 285):
 			sala_atual = 'Sala 10'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (30 <= X and X <= 235) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 11'
-			coordenadas_X = X_ant
-			coordenadas_Y = Y_ant
+			
 		
 		elif (280 <= X and X <= 385) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 12'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (430 <= X and X <= 570) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 13'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		elif (615 <= X and X <= 770) and (455 <= Y and Y <= 570):
 			sala_atual = 'Sala 14'
-			coordenadas_X = X
-			coordenadas_Y = Y
+			
 		
 		else:
 			sala_atual = ''
-			coordenadas_X = 0
-			coordenadas_Y = 0
+			
 	
 	
 	
@@ -168,11 +149,13 @@ def work(posicao, bateria, objetos):
 		#Adiciona só a divisão quando esta ainda não foi adicionada
 		if ((sala_atual not in Divisoes_Encontradas) and sala_atual != '') :
 				Divisoes_Encontradas.append(sala_atual)
-				#---------------------------------------------
-				Divisoes_Encontradas.append(X)
-				Divisoes_Encontradas.append(Y)
-				#---------------------------------------------
-		
+
+	#---------------------------------------------
+		if ((sala_atual not in Divisoes) and sala_atual != '' and 'Sala' in sala_atual) :
+				Divisoes(sala_atual)
+				Divisoes.append(X)
+				Divisoes.append(Y)
+				#--------------------------------------------
 		
 		#Só adiciona quando vê que todos os objetos ainda não foram registados
 		if (bool(set(objetos).intersection(Objetos_Vistos)) == False) :
@@ -349,11 +332,11 @@ def Distancia_sala_Enfermeiro():
 		#se Sala Enfermeiros estiver na lista dos tipos de Sala, algo que  tem que acontecer, pois caso não estivesse o mesmo não "acionava" a função
 		if 'Sala de Enfermeiros' in Tipos_Sala[i+1]: 
 			count = count + 1
-			for j in range(0, len(Divisoes_Encontradas), 3):
-				if(Tipos_Sala[i] in Divisoes_Encontradas):
-					sala_aux.append(Divisoes_Encontradas[j])
-					sala_aux.append(Divisoes_Encontradas[j+1]) #X
-					sala_aux.append(Divisoes_Encontradas[j+2]) #Y
+			for j in range(0, len(Divisoes), 3):
+				if(Tipos_Sala[i] in Divisoes):
+					sala_aux.append(Divisoes[j])
+					sala_aux.append(Divisoes[j+1]) #X
+					sala_aux.append(Divisoes[j+2]) #Y
 
 	#se só existe 1 sala de enfermeiros
 	if count == 1:
