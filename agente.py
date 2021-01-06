@@ -135,7 +135,7 @@ def work(posicao, bateria, objetos):
 
 			#--------------------------------------------------------------------------------------------
 			#Definir portas para ajuda na deslocação do robô
-			sala_atual = ''	
+			#sala_atual = ''	
 			if  (180 <= Y and Y <= 285):
 				if (85 > X and X < 130):
 					porta = 'Porta 1'
