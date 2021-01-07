@@ -429,7 +429,7 @@ def Calcula_Distancia_Escadas():
 	 
 
 
-def Media_Tempo_Deslocamento(tempo):
+def Media_Tempo_Deslocamento():
 	media = 0
 	#aa = time.time()
 	
@@ -439,7 +439,7 @@ def Media_Tempo_Deslocamento(tempo):
 		return 0
 	else:
 		aa = time.time()
-		tempo_des = aa - tempo
+		tempo_des = aa - inicial_time
 
 		media =  tempo_des / distancia
 
@@ -539,7 +539,7 @@ def resp5():
 	#else:
 	c = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
-	media = Media_Tempo_Deslocamento(inicial_time)
+	media = Media_Tempo_Deslocamento()
 
 	des_med = deslocamento * media
 
