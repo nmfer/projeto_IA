@@ -433,12 +433,16 @@ def Media_Tempo_Deslocamento(tempo):
 	media = 0
 	aa = time.time()
 	
-	
 	distancia = math.sqrt((X - 100)**2 + (Y - 100)**2)
-	tempo_des = aa - tempo
+	if(distancia == 0):
+		print('mova o robô')
+		return 0
+	else:
+		tempo_des = aa - tempo
 
-	media =  tempo_des / distancia
+		media =  tempo_des / distancia
 
+	
 	#Calcula_tempo_Distancia(tempo_inicial)
 
 	#distancia = math.sqrt((180 - X_ant)**2 + (40 - Y_ant)**2)
@@ -538,7 +542,7 @@ def resp5():
 
 	des_med = deslocamento * media
 
-	print(des_med)
+	#print(des_med)
 
 	#calcular o tempo de deslocação do robô
 	#(distancia / tempo_final - tempo_inicial)
