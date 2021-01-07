@@ -300,9 +300,9 @@ def Distancia_sala_Enfermeiro():
 	else:
 		#percorre a lista sala_aux, 3 em 3, devido às coordenadas que se encontram na lista
 		for i in range(0, len(sala_aux),3):
-
+			
 			#calcula a distância da posição em que o robô se encontra até às salas existentes, através do X e Y da posição atual e da sala
-			distancia = math.sqrt((sala_aux[i+1] - X_ant)**2 + (Y_sala = sala_aux[i+2] - Y_ant)**2)
+			distancia = math.sqrt((sala_aux[i+1] - X_ant)**2 + (sala_aux[i+2] - Y_ant)**2)
 			
 			salas_enfermeiros.append(sala_aux[i])
 			salas_enfermeiros.append(distancia)
