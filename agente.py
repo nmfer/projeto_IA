@@ -395,7 +395,7 @@ def Caminho_sala_Enfermeiro():
 	else:	
 		for i in range (0, len(Divisoes), 3):
 			if (Divisoes[i] == sala_atual):
-				print (Divisoes[i])
+				#print (Divisoes[i])
 				if(180 <= Y and Y <= 285) and (130 <= X and X <= 520):
 					if(Divisoes[i+2] == 285):
 						print('saida 4')
