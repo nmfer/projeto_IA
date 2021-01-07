@@ -406,12 +406,12 @@ def Caminho_sala_Enfermeiro():
 						print('saida 2')
 					elif(Divisoes[i+1] == 520):
 						print('saida 3')			
-				if(680 <= X and X <= 770) and (30 <= Y and 285 <= Y):
+				elif(680 <= X and X <= 770) and (30 <= Y and 285 <= Y):
 					if(Divisoes[i+1] == 680):
 						print('saida 3')
 					elif(Divisoes[i+2] == 285):
 						print('saida 4')
-				if(455 <= Y and 570 <= Y):
+				elif(455 <= Y and 570 <= Y):
 					if(Divisoes[i+2] == 455):
 						print('saida 4')
 
