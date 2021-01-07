@@ -439,7 +439,7 @@ def Media_Tempo_Deslocamento():
 		return 0
 	else:
 		aa = time.time()
-		tempo_des = aa - b
+		tempo_des = a - b
 
 		media =  tempo_des / distancia
 
