@@ -409,7 +409,7 @@ def Calcula_Distancia_Escadas():
 	#media = 0
 	distancia = 0
 
-	distancia = math.sqrt((180- X)**2 + (40 - Y)**2)
+	distancia = math.sqrt((X - 180)**2 + (Y - 40)**2)
 	#d = time.time()
 	#print(distancia)	
 
