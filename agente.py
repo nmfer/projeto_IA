@@ -434,7 +434,7 @@ def Media_Tempo_Deslocamento(tempo):
 	aa = time.time()
 	
 	
-	distancia = math.sqrt((X - 0)**2 + (Y - 0)**2)
+	distancia = math.sqrt((X - 100)**2 + (Y - 100)**2)
 	tempo_des = tempo - aa
 
 	media =  tempo_des / distancia
