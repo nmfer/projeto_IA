@@ -406,12 +406,9 @@ def Caminho_sala_Enfermeiro(aux_distancias):
 
 
 def Calcula_Distancia_Escadas():
-	#media = 0
 	distancia = 0
 
 	distancia = math.sqrt((180 - X)**2 + (40 - Y)**2)
-	#d = time.time()
-	#print(distancia)	
 
 	return distancia
 	#tempo = tempo_inicial - d	
@@ -425,8 +422,8 @@ def Media_Tempo_Deslocamento(b):
 	
 	distancia = math.sqrt((100 - X)**2 + (100 - Y)**2)
 	if(distancia == 0):
-		print('mova o robô')
-		return 0
+		distancia = math.sqrt((180 - 100)**2 + (40 - 100)**2)
+		print(distancia)
 	else:
 		#tempo_final = time.time()
 		tempo_des = tempo_final - b
