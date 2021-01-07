@@ -430,7 +430,8 @@ def Media_Tempo_Deslocamento(b):
 	distancia = math.sqrt((X - 100)**2 + (Y - 100)**2)
 	
 	if(distancia == 0):
-		return 'Mova o robô por favor'
+		print('Mova o robô por favor')
+		return 0
 	else:
 		tempo_des = tempo_final - b
 
