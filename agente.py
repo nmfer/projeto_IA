@@ -401,11 +401,19 @@ def Caminho_sala_Enfermeiro():
 						print('saida 4')
 					elif(Divisoes[i+2] == 180):
 						print('saida 1')
+						#print('Saia da ', sala_atual, ' para o corredor 1')
 					elif(Divisoes[i+1] == 130):
 						print('saida 2')
-					elif(Divisoes[i+2] == 520):
+					elif(Divisoes[i+1] == 520):
 						print('saida 3')			
-				
+				if(680 <= X and X <= 770) and (30 <= Y and 285 <= Y):
+					if(Divisoes[i+1] == 680):
+						print('saida 3')
+					elif(Divisoes[i+2] == 285):
+						print('saida 4')
+				if(455 <= Y and 570 <= Y):
+					if(Divisoes[i+2] == 455):
+						print('saida 4')
 
 def Calcula_Distancia_Escadas():
 	#media = 0
@@ -470,7 +478,7 @@ def resp3():
 	
 	#indicar o caminho dizendo sala e 
 	if len(Tipos_Sala) == 0:
-		print("Ainda não existem salas registadas")
+		print("Ainda não existem salas registadas")	
 	elif 'Sala de Enfermeiros' not in Tipos_Sala:
 		print("Ainda não foi registada uma sala de enfermeiros")
 	else:		
