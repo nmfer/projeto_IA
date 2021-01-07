@@ -422,7 +422,7 @@ def Calcula_Distancia_Escadas():
 	distancia = math.sqrt((180- X)**2 + (40 - Y)**2)
 	#d = time.time()
 	#print(distancia)	
-	
+
 	return distancia
 	#tempo = tempo_inicial - d	
 	pass
@@ -434,7 +434,7 @@ def Media_Tempo_Deslocamento(tempo):
 	#posição das escadas
 	#if (X == 180) and (30 <= Y and Y <= 45):
 	#	posicao_escadas = 'Escadas'
-	distancia = math.sqrt((0 - X_ant)**2 + (0 - Y_ant)**2)
+	distancia = math.sqrt((180 - X_ant)**2 + (40 - Y_ant)**2)
 	tempo_des = tempo - a
 
 	media =  tempo_des / distancia
