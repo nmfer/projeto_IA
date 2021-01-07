@@ -387,6 +387,13 @@ def Caminho_sala_Enfermeiro():
 	X_atual = X
 	Y_atual = Y
 
+	if 'Corredor' in sala_atual:
+		print ('Corredor')
+	else:	
+		for i in range (0, len(Divisoes), 3):
+			if (Divisoes[i] == sala_atual):
+				print (Divisoes[i])
+
 def Calcula_Distancia_Escadas():
 	#media = 0
 	distancia = 0
@@ -438,7 +445,6 @@ def resp2():
 	if sala_atual == '':
 		print ("O agente de momento não se encontra em nenhuma sala.")
 	else :
-		
 		for i in range (0, len(Tipos_Sala)):
 			if (Tipos_Sala[i] == sala_atual):
 				print ('A sala onde o agente se encontra de momento é ', Tipos_Sala[i+1], ".")
