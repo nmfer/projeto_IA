@@ -62,7 +62,7 @@ def work(posicao, bateria, objetos):
     # podem achar o tempo atual usando, p.ex.
     # time.time()
     
-	global X, Y, X_ant, Y_ant, objeto, objetos_sala, sala_atual, lista_objetos, bat, b, coordenadas_X, coordenadas_Y
+	global X, Y, X_ant, Y_ant, objeto, objetos_sala, sala_atual, lista_objetos, bat, b, coordenadas_X, coordenadas_Y, inicial_time
 
 	#X e Y atuais :
 	X = posicao[0]
@@ -198,7 +198,7 @@ def work(posicao, bateria, objetos):
 	if bat == 100 :
 		a = time.time()
 
-	resp3()
+	resp5()
 	#print(sala_atual)
 	#print(X)
 	#print(Y)
@@ -419,7 +419,7 @@ def Calcula_Distancia_Escadas():
 	#media = 0
 	distancia = 0
 
-	distancia = math.sqrt((X_escada - X_ant)**2 + (Y_escada - Y_ant)**2)
+	distancia = math.sqrt((X_ant- X)**2 + (Y_ant - Y)**2)
 	#d = time.time()
 	print(distancia)	
 	#tempo = tempo_inicial - d	
@@ -427,9 +427,8 @@ def Calcula_Distancia_Escadas():
 	 
 
 
-def Tempo_Caminho_Escadas():
-	distancia = 0
-	posicao_escadas = ''
+def Media_Tempo_Deslocamento(distancia):
+	media = 0
 	#posição das escadas
 	#if (X == 180) and (30 <= Y and Y <= 45):
 	#	posicao_escadas = 'Escadas'
