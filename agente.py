@@ -275,7 +275,7 @@ def Distancia_sala_Enfermeiro():
 	#percorre a lista dos Tipos de Sala que existem
 	for i in range(0, len(Tipos_Sala), 2):
 		#se Sala Enfermeiros estiver na lista dos tipos de Sala, algo que  tem que acontecer, pois caso não estivesse o mesmo não "acionava" a função
-		if 'Sala de Enfermeiros' in Tipos_Sala[i+1]: 
+		if 'uma sala de enfermeiros' in Tipos_Sala[i+1]: 
 			#caso a condição se verifique, adiciona +1 à variável count
 			count = count + 1
 			#percorre a lista das Divisões
@@ -335,7 +335,7 @@ def Caminho_sala_Enfermeiro(aux_distancias):
 	if 'Corredor' in sala_atual:
 		print('Desloque-se para a ', aux_distancias)
 	elif aux_distancias == sala_atual:
-		print('Já se encontra na Sala dos Enfermeiros')		
+		print('Já se encontra na Sala de Enfermeiros')		
 	else:	
 		for i in range (0, len(Divisoes), 3):
 			if (Divisoes[i] == sala_atual):
@@ -429,7 +429,7 @@ def resp3():
 	if len(Tipos_Sala) == 0:
 		print("Ainda não existem salas registadas")	
 	#se ainda não tiver sido registada uma sala de enfermeiros	
-	elif 'Sala de Enfermeiros' not in Tipos_Sala:
+	elif 'uma sala de enfermeiros' not in Tipos_Sala:
 		print("Ainda não foi registada uma sala de enfermeiros")
 	else:		
 		Distancia_sala_Enfermeiro()
