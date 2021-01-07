@@ -342,13 +342,14 @@ def Distancia_sala_Enfermeiro():
 	#se só existe 1 sala de enfermeiros
 	if count == 1:
 		X_sala = sala_aux[1]
-		print(X_sala)
+		#print(X_sala)
 		Y_sala = sala_aux[2]
-		print(Y_sala)
+		#print(Y_sala)
 		#calcula a distância da posição em que o dito se encontra até à única sala existente
 		distancia = math.sqrt((X_sala - X)**2 + (Y_sala - Y)**2)
 
-		print(distancia)
+		Caminho_sala_Enfermeiro()
+		#print(distancia)
 	#se existir mais que 1 sala de enfermeiros	
 	else:
 
@@ -375,7 +376,8 @@ def Distancia_sala_Enfermeiro():
 				#sala
 				aux_distancias = aux_distancias
 
-		print(aux_distancias)
+		Caminho_sala_Enfermeiro()
+		#print(aux_distancias)
 
 		#acabar o 3
 		#fazer a cena do deslocamento para a sala de enfermeiros
