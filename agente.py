@@ -316,7 +316,6 @@ def Probabiliade_Condicionada ():
 	
 	pass
 
-#-------------------------------------------------------------------------------------------------------
 def Distancia_sala_Enfermeiro():
 	
 	#variaveis auxiliares
@@ -400,15 +399,10 @@ def Caminho_sala_Enfermeiro(aux_distancias):
 				print('Saia da sala atual para o corredor mais próximo e desloque-se para a ', aux_distancias)
 
 
-
-
-
-
-
 def Calcula_Distancia_Escadas():
 	#Variáveis auxiliares
 	distancia = 0
-	#escadas encontram-se estáticas, logo define-se as mesmas
+	#escadas encontram-se estáticas
 	X_escadas = 180
 	Y_escadas = 40
 
@@ -521,6 +515,7 @@ def resp5():
 	
 	deslocamento = Calcula_Distancia_Escadas()
 	
+	#calcular a média do tempo de deslocamento
 	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
