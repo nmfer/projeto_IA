@@ -397,6 +397,12 @@ def Caminho_sala_Enfermeiro(aux_distancias):
 			if (Divisoes[i] == sala_atual):
 				print('Saia da sala atual para o corredor mais próximo e desloque-se para a ', aux_distancias)
 
+
+
+
+
+
+
 def Calcula_Distancia_Escadas():
 	#media = 0
 	distancia = 0
@@ -413,15 +419,15 @@ def Calcula_Distancia_Escadas():
 
 def Media_Tempo_Deslocamento():
 	media = 0
-	#aa = time.time()
+	tempo_inicial = time.time()
 	
-	distancia = math.sqrt((100 - X)**2 + (100 - Y)**2)
+	distancia = math.sqrt((X-100)**2 + (Y-100)**2)
 	if(distancia == 0):
 		print('mova o robô')
 		return 0
 	else:
-		aa = time.time()
-		tempo_des = b - a
+		tempo_final = time.time()
+		tempo_des = tempo_final - tempo_inicial
 
 		media =  tempo_des / distancia
 
@@ -521,7 +527,7 @@ def resp5():
 	#else:
 	c = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
-	media = Media_Tempo_Deslocamento()
+	media = Media_Tempo_Deslocamento(c)
 
 	des_med = deslocamento * media
 
