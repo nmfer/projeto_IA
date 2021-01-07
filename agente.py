@@ -431,7 +431,7 @@ def Media_Tempo_Deslocamento(b):
 		#tempo_final = time.time()
 		tempo_des = tempo_final - b
 
-		media =  distancia/tempo_des
+		media =  tempo_des/distancia
 
 	
 	#Calcula_tempo_Distancia(tempo_inicial)
