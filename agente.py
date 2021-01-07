@@ -535,7 +535,7 @@ def resp5():
 	#else:
 	c = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
-	media = Media_Tempo_Deslocamento(b)
+	media = Media_Tempo_Deslocamento(c)
 
 	des_med = deslocamento * media
 
