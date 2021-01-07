@@ -430,7 +430,6 @@ def Media_Tempo_Deslocamento(b):
 	distancia = math.sqrt((X - 100)**2 + (Y - 100)**2)
 	
 	if(distancia == 0):
-		print('Mova o robô por favor')
 		return 0
 	else:
 		tempo_des = tempo_final - b
@@ -525,8 +524,12 @@ def resp5():
 	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
-
-	print('Falta aproximadamente ', des_med, ' segundos para chegar às escadas (margem de erro de menos de 2 segundos)')
+	if ((des_med == 0) and ((X == 180) and ((30 <= Y) and (Y >= 45)))):
+		print('O robô encontra-se nas escadas')
+	elif (des_med == 0):
+		print('Mova o robô')
+	else:	
+		print('Falta aproximadamente ', des_med, ' segundos para chegar às escadas (margem de erro de menos de 2 segundos)')
 	
 	pass
 
