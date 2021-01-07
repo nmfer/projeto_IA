@@ -376,7 +376,7 @@ def Distancia_sala_Enfermeiro():
 				#sala
 				aux_distancias = aux_distancias
 
-		Caminho_sala_Enfermeiro()
+		Caminho_sala_Enfermeiro(aux_distancias)
 		#print(aux_distancias)
 
 		#acabar o 3
@@ -385,35 +385,18 @@ def Distancia_sala_Enfermeiro():
 		# se o mesmo se encontrar na sala devolve -> já se encontra na sala 
 	pass
 
-def Caminho_sala_Enfermeiro():
+def Caminho_sala_Enfermeiro(aux_distancias):
 	X_atual = X
 	Y_atual = Y
 
 	if 'Corredor' in sala_atual:
-		print ('Corredor')
-		
+		print('Desloque-se para a ', aux_distancias)
+	elif aux_distancias == sala_atual:
+		print('Já se encontra na Sala dos Enfermeiros')		
 	else:	
 		for i in range (0, len(Divisoes), 3):
 			if (Divisoes[i] == sala_atual):
-				#print (Divisoes[i])
-				if(180 <= Y and Y <= 285) and (130 <= X and X <= 520):
-					if(Divisoes[i+2] == 285):
-						print('saida 4')
-					elif(Divisoes[i+2] == 180):
-						print('saida 1')
-						#print('Saia da ', sala_atual, ' para o corredor 1')
-					elif(Divisoes[i+1] == 130):
-						print('saida 2')
-					elif(Divisoes[i+1] == 520):
-						print('saida 3')			
-				elif(680 <= X and X <= 770) and (30 <= Y and 285 <= Y):
-					if(Divisoes[i+1] == 680):
-						print('saida 3')
-					elif(Divisoes[i+2] == 285):
-						print('saida 4')
-				elif(455 <= Y and 570 <= Y):
-					if(Divisoes[i+2] == 455):
-						print('saida 4')
+				print('Saia da sala atual para o corredor mais próximo e desloque-se para a ', aux_distancias)
 
 def Calcula_Distancia_Escadas():
 	#media = 0
