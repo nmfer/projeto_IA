@@ -524,7 +524,7 @@ def resp5():
 	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
-	if ((des_med == 0) and ((X == 180) and ((30 <= Y) and (Y >= 45)))):
+	if ((des_med == 0) or (X <= 180) and (30 <= Y and Y <= 45)):
 		print('O robô encontra-se nas escadas')
 	elif (des_med == 0):
 		print('Mova o robô')
