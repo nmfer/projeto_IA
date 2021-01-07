@@ -406,34 +406,35 @@ def Caminho_sala_Enfermeiro(aux_distancias):
 
 
 def Calcula_Distancia_Escadas():
+	#Variáveis auxiliares
 	distancia = 0
+	#escadas encontram-se estáticas, logo define-se as mesmas
+	X_escadas = 180
+	Y_escadas = 40
 
-	distancia = math.sqrt((180 - X)**2 + (40 - Y)**2)
+	distancia = math.sqrt((X_escadas - X)**2 + (Y_escadas - Y)**2)
 
 	return distancia
-	#tempo = tempo_inicial - d	
+
 	pass
 	 
 
 
 def Media_Tempo_Deslocamento(b):
+	#variáveis auxiliares
 	media = 0
 	tempo_final = time.time()
-	
+	distancia = 0
+	tempo_des = 0
+
 	distancia = math.sqrt((X - 100)**2 + (Y - 100)**2)
+	
 	if(distancia == 0):
-		distancia = math.sqrt((180 - 100)**2 + (40 - 100)**2)
-		return 0
+		return 'Mova o robô por favor'
 	else:
-		#tempo_final = time.time()
 		tempo_des = tempo_final - b
 
 		media =  tempo_des/distancia
-
-	
-	#Calcula_tempo_Distancia(tempo_inicial)
-
-	#distancia = math.sqrt((180 - X_ant)**2 + (40 - Y_ant)**2)
 
 	return media
 
@@ -518,25 +519,13 @@ def resp4():
 #Quanto tempo achas que demoras a ir de onde estás até as escadas?
 def resp5():
 	
-	#percentagem da bateria ou quanto tempo falta para a mesma terminar influencia o outcome
-	#se a distancia às escadas for maior que a duração da bateria, redirecionar para um posto de carregamento
-
-	#if(bat < 10):
-	#	print('Carregue na estação mais próxima')
-	#else:
-	#tempo_final = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
+	
 	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
 
-	print(des_med)
-
-	#calcular o tempo de deslocação do robô
-	#(distancia / tempo_final - tempo_inicial)
-
-	#distancia para sair do quarto/sala, caso esteja na sala
-	#distancia entre os corredores -> dividir o corredor 4 em 2
+	print('Falta aproximadamente ', des_med, ' segundos para chegar às escadas (margem de erro de menos de 2 segundos)')
 	
 	pass
 
