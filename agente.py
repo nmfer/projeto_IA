@@ -137,7 +137,8 @@ def work(posicao, bateria, objetos):
 				Divisoes.append(X)
 				#adiciona a coordenada Y em que a sala é encontrada
 				Divisoes.append(Y)		
-				
+	
+	Tipos_de_Sala(sala_atual)				
 	
 	#As cordenadas anteriores passam a ser iguais às cordenadas atuais
 	Y_ant = Y
