@@ -436,7 +436,7 @@ def Media_Tempo_Deslocamento(tempo):
 	#if (X == 180) and (30 <= Y and Y <= 45):
 	#	posicao_escadas = 'Escadas'
 	distancia = math.sqrt((0 - X_ant)**2 + (0 - Y_ant)**2)
-	tempo_des = tempo - aa
+	tempo_des = tempo - a
 
 	media =  tempo_des / distancia
 
@@ -535,7 +535,7 @@ def resp5():
 	#else:
 	c = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
-	media = Media_Tempo_Deslocamento(c)
+	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
 
