@@ -438,7 +438,7 @@ def Media_Tempo_Deslocamento(tempo):
 		print('mova o robô')
 		return 0
 	else:
-		tempo_des = aa - tempo
+		tempo_des = a - tempo
 
 		media =  tempo_des / distancia
 
@@ -538,7 +538,7 @@ def resp5():
 	#else:
 	c = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
-	media = Media_Tempo_Deslocamento(c)
+	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
 
