@@ -542,7 +542,7 @@ def resp5():
 
 	des_med = deslocamento * media
 
-	#print(des_med)
+	print(des_med)
 
 	#calcular o tempo de deslocação do robô
 	#(distancia / tempo_final - tempo_inicial)
