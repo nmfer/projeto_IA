@@ -145,7 +145,6 @@ def work(posicao, bateria, objetos):
 	
 	
 	
-	#--------------------------------------------------------------------------------------------
 		#Adiciona só a divisão quando esta ainda não foi adicionada
 		if ((sala_atual not in Divisoes_Encontradas) and sala_atual != '') :
 				Divisoes_Encontradas.append(sala_atual)
@@ -155,7 +154,7 @@ def work(posicao, bateria, objetos):
 				Divisoes.append(sala_atual)
 				Divisoes.append(X)
 				Divisoes.append(Y)
-				#--------------------------------------------
+	#--------------------------------------------
 		
 		#Só adiciona quando vê que todos os objetos ainda não foram registados
 		if (bool(set(objetos).intersection(Objetos_Vistos)) == False) :
