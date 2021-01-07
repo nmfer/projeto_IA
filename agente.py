@@ -423,12 +423,12 @@ def Media_Tempo_Deslocamento(b):
 	distancia = math.sqrt((100 - X)**2 + (100 - Y)**2)
 	if(distancia == 0):
 		distancia = math.sqrt((180 - 100)**2 + (40 - 100)**2)
-		print(distancia)
+		return 0
 	else:
 		#tempo_final = time.time()
 		tempo_des = tempo_final - b
 
-		media =  tempo_des/distancia
+		media =  distancia/tempo_des
 
 	
 	#Calcula_tempo_Distancia(tempo_inicial)
