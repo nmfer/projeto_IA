@@ -435,7 +435,7 @@ def Media_Tempo_Deslocamento(tempo):
 	
 	
 	distancia = math.sqrt((X - 100)**2 + (Y - 100)**2)
-	tempo_des = tempo - aa
+	tempo_des = tempo - a
 
 	media =  tempo_des / distancia
 
@@ -534,7 +534,7 @@ def resp5():
 	#else:
 	c = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
-	media = Media_Tempo_Deslocamento(c)
+	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
 
