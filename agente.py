@@ -17,7 +17,7 @@ import math
 X_escada = 180
 Y_escada = 40
 
-inicial_time = time.time()
+tempo_inicial = 0
 
 coordenadas_X = 0
 coordenadas_Y = 0
@@ -143,7 +143,9 @@ def work(posicao, bateria, objetos):
 			sala_atual = ''
 			
 	
-	
+		if (X == 100) and (Y == 100):
+			tempo_inicial = time.time()
+
 	
 		#Adiciona só a divisão quando esta ainda não foi adicionada
 		if ((sala_atual not in Divisoes_Encontradas) and sala_atual != '') :
@@ -417,19 +419,19 @@ def Calcula_Distancia_Escadas():
 	 
 
 
-def Media_Tempo_Deslocamento():
+def Media_Tempo_Deslocamento(b):
 	media = 0
-	tempo_inicial = time.time()
+	tempo_final = time.time()
 	
 	distancia = math.sqrt((X-100)**2 + (Y-100)**2)
 	if(distancia == 0):
 		print('mova o robô')
 		return 0
 	else:
-		tempo_final = time.time()
-		tempo_des = tempo_final - tempo_inicial
+		#tempo_final = time.time()
+		tempo_des = tempo_final - b
 
-		media =  tempo_des / distancia
+		media =  distancia/tempo_des
 
 	
 	#Calcula_tempo_Distancia(tempo_inicial)
@@ -472,7 +474,7 @@ def resp2():
 	pass
 
 #Qual o caminho para a sala de enfermeiros mais próxima?
-#Parcialmente feito
+#Feito
 def resp3():
 	
 	#indicar o caminho dizendo sala e 
@@ -525,9 +527,9 @@ def resp5():
 	#if(bat < 10):
 	#	print('Carregue na estação mais próxima')
 	#else:
-	c = time.time()
+	#tempo_final = time.time()
 	deslocamento = Calcula_Distancia_Escadas()
-	media = Media_Tempo_Deslocamento(c)
+	media = Media_Tempo_Deslocamento(b)
 
 	des_med = deslocamento * media
 
