@@ -409,7 +409,7 @@ def Calcula_Distancia_Escadas():
 	#media = 0
 	distancia = 0
 
-	distancia = math.sqrt((X - 180)**2 + (Y - 40)**2)
+	distancia = math.sqrt((180 - X)**2 + (40 - Y)**2)
 	#d = time.time()
 	#print(distancia)	
 
@@ -423,7 +423,7 @@ def Media_Tempo_Deslocamento(b):
 	media = 0
 	tempo_final = time.time()
 	
-	distancia = math.sqrt((X-100)**2 + (Y-100)**2)
+	distancia = math.sqrt((100 - X)**2 + (100 - Y)**2)
 	if(distancia == 0):
 		print('mova o robô')
 		return 0
