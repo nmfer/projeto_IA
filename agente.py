@@ -419,9 +419,11 @@ def Calcula_Distancia_Escadas():
 	#media = 0
 	distancia = 0
 
-	distancia = math.sqrt((X_ant- X)**2 + (Y_ant - Y)**2)
+	distancia = math.sqrt((180- X)**2 + (40 - Y)**2)
 	#d = time.time()
-	print(distancia)	
+	#print(distancia)	
+	
+	return distancia
 	#tempo = tempo_inicial - d	
 	pass
 	 
@@ -530,8 +532,12 @@ def resp5():
 	#if(bat < 10):
 	#	print('Carregue na estação mais próxima')
 	#else:
-	Calcula_Distancia_Escadas()
-	Media_Tempo_Deslocamento(b)
+	deslocamento = Calcula_Distancia_Escadas()
+	media = Media_Tempo_Deslocamento(b)
+
+	des_med = deslocamento * media
+
+	print(des_med)
 
 	#calcular o tempo de deslocação do robô
 	#(distancia / tempo_final - tempo_inicial)
